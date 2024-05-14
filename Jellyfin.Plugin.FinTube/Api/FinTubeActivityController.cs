@@ -115,7 +115,7 @@ public class FinTubeActivityController : ControllerBase
                         args += " --prefer-free-format";
                     else
                         args += " --audio-format mp3";
-                    args += $" -o \"{targetFilename}.%(ext)s\" {data.ytid}";
+                    args += $" -o \"%(channel)s\{targetFilename}.%(ext)s\" {data.ytid}";
                 }
                 else
                 {
@@ -125,7 +125,7 @@ public class FinTubeActivityController : ControllerBase
                         args = "-f mp4";
                     if(!string.IsNullOrEmpty(data.videoresolution))
                         args += $" -S res:{data.videoresolution}";
-                    args += $" -o \"{targetFilename}-%(title)s.%(ext)s\" {data.ytid}";
+                    args += $" -o \"%(channel)s\{targetFilename}-%(title)s.%(ext)s\" {data.ytid}";
                 }
 
                 status += $"Exec: {config.exec_YTDL} {args}<br>";
